@@ -12,17 +12,18 @@ environment.wave_velocity = 5600; % m/s, steel
 
 % Specifications
 % beam angle 
-deg_angle = 61; % fixed
+deg_angle = 0; % fixed
 % Side lobe level 
 
 % set up beam parameters
-beam.alpha_rotation = -deg2rad(deg_angle); % steer angle (fixed)
+beam.alpha_rotation = deg2rad(deg_angle); % steer angle (fixed)
 beam.focal_distance = 32e-3; % mm (fixed)
 beam.display_limit_db = -30; % for display purposes only
 
 % set up probe element locations.
 probe = []; % reset probe description
-probe.frequency = 5e6; % Hz, all other 
+probe.frequency = 1e6; % Hz, all other 
+%probe.d = environment.wave_velocity/(2*probe.frequency);
 probe.n = 16; % number of elements (fixed)
 probe.d = 0.7e-3; % element pitch
 probe.e = probe.d-0.2e-3; % element width
