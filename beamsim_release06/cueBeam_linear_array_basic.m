@@ -12,7 +12,7 @@ environment.wave_velocity = 5600; % m/s, steel
 
 % Specifications
 % beam angle 
-deg_angle = 0; % fixed
+deg_angle =30; % 61; % fixed
 % Side lobe level 
 
 % set up beam parameters
@@ -23,12 +23,13 @@ beam.display_limit_db = -30; % for display purposes only
 % set up probe element locations.
 probe = []; % reset probe description
 probe.frequency = 1e6; % Hz, all other 
-%probe.d = environment.wave_velocity/(2*probe.frequency);
+wavelength = environment.wave_velocity/(probe.frequency);
 probe.n = 16; % number of elements (fixed)
-probe.d = 0.7e-3; % element pitch
-probe.e = probe.d-0.2e-3; % element width
+%probe.d = 0.6*wavelength; % element pitch
+probe.d = 2.93e-3;
+probe.e = 2.489e-3; % element width
 probe.W = 10e-3; % passive aperture size
-probe.apodisationtype = cueBeam.ApodisationType.None; % NOTE! press "tab" or see ApodisationType.m for available types.
+probe.apodisationtype = cueBeam.ApodisationType.Hamming; % NOTE! press "tab" or see ApodisationType.m for available types.
 probe.apodisationParameter1 = 0.5; % used with cueBeamApodisation.RaisedCosine as base level
 probe.apodisationParameter2 = 0.7; % used with cueBeamApodisation.RaisedCosine as raise power
 

@@ -4,19 +4,22 @@
 % Copyright Jerzy Dziewierz, University of Strathclyde, 2008-2013
 
 % note, all units SI system
-
+import_cueBeamPy;
 % set up specimen
-enviroment.wave_velocity=5600; % m/s, steel
+environment.wave_velocity=5600; % m/s, steel
+
+deg_angle =61; % 61; % fixed
+% Side lobe level 
 
 % set up beam parameters
-beam.alpha_rotation=20*pi/180; % radians
-beam.focal_distance=50e-3; % mm
+beam.alpha_rotation = deg2rad(deg_angle); % steer angle (fixed)
+beam.focal_distance=32e-3; % mm
 beam.display_limit_db=-20; % for display purposes only
 
 % set up probe element locations.
 probe=[]; % reset probe description
-probe.frequency=5e6; % Hz, all other
-probe.n=15; % number of elements
+probe.frequency=1e6; % Hz, all other
+probe.n=16; % number of elements
 %probe.d=0.7e-3; % element pitch % note: this goes into parameter sweep
 %probe.e=probe.d-0.1e-3; % element width
 probe.W=15e-3;
@@ -26,6 +29,7 @@ probe.apodisationParameter2=0.5;
 
 % set simulation options
 simulation.lambert_map_density=1e-3;
+simulation.lambert_radius = beam.focal_distance;
 simulation.xy_resolution=0.5e-3;
 simulation.xy_z_extent=100e-3;
 simulation.xy_z0=15e-3;% note: do not start z0 from zero,
