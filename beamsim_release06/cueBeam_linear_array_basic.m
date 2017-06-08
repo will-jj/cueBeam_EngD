@@ -1,7 +1,7 @@
 % cueBeam_linear_array_basic
 % Basic probe for the tutorial
 % Copyright Jerzy Dziewierz, University of Strathclyde, 2008-2013
-
+%match to steel like a tap tap player
 % note, all units SI system
 
 % load cueBeamCore into matlab
@@ -10,16 +10,20 @@ import_cueBeamPy;
 % set up specimen
 environment.wave_velocity = 5600; % m/s, steel
 
+% Specifications
+% beam angle 
+deg_angle = 61; % fixed
+% Side lobe level 
 
 % set up beam parameters
-beam.alpha_rotation = 0*pi/24; % steer angle
-beam.focal_distance = 60e-3; % mm
+beam.alpha_rotation = -deg2rad(deg_angle); % steer angle (fixed)
+beam.focal_distance = 32e-3; % mm (fixed)
 beam.display_limit_db = -30; % for display purposes only
 
 % set up probe element locations.
 probe = []; % reset probe description
 probe.frequency = 5e6; % Hz, all other 
-probe.n = 16; % number of elements
+probe.n = 16; % number of elements (fixed)
 probe.d = 0.7e-3; % element pitch
 probe.e = probe.d-0.2e-3; % element width
 probe.W = 10e-3; % passive aperture size

@@ -1,6 +1,6 @@
-#Array Design Parameters
+# Array Design Parameters
 
-<a href="random.org">Random Generator Used </a>o generate numbers within the following ranges:
+<a href="https://random.org">Random number generator</a> used to generate numbers within the following ranges:
 
 * Side lobe level -30 dB to -10 dB
 * Steering range 30 deg to 70 deg
