@@ -12,12 +12,12 @@ environment.wave_velocity = 5600; % m/s, steel
 
 % Specifications
 % beam angle 
-deg_angle =30; % 61; % fixed
+deg_angle =36.9; % 61; % fixed
 % Side lobe level 
 
 % set up beam parameters
 beam.alpha_rotation = deg2rad(deg_angle); % steer angle (fixed)
-beam.focal_distance = 32e-3; % mm (fixed)
+beam.focal_distance = 50e-3; % mm (fixed)
 beam.display_limit_db = -30; % for display purposes only
 
 % set up probe element locations.
